@@ -20,7 +20,8 @@ The following **bonus** features are implemented:
 - [x] User can load past tweets infinitely. (2pts)
 - [x] User can view their own profile 
 - [x] User can view their own posts
-- [x] User can update and change their profile photo
+- [x] User can change their profile photo
+- [x] User can display profile photo with each post
 - [x] Changed style of home feed, login page, and posting page
 - [x] Added tabs to the app - home feed and profile page
 
