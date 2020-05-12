@@ -34,7 +34,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         let width = (view.frame.size.width - layout.minimumInteritemSpacing * 2) / 3
         layout.itemSize = CGSize(width: width, height: width)
         
-        
             
     }
     
@@ -44,7 +43,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         let query = PFQuery(className: "Posts")
         query.includeKey("author")
         query.limit = 20
-
+        
         query.findObjectsInBackground { (posts, error) in
             if posts != nil {
                 self.posts = posts!
@@ -54,6 +53,18 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 print("error!")
             }
         }
+        
+        for post in posts {
+           let user = post["author"] as! PFUser
+           if user.username == PFUser.current()?.username && post["profile_image"] != nil {
+               let imageFile = post["profile_image"] as! PFFileObject
+               let urlString = imageFile.url!
+               let url = URL(string: urlString)!
+               
+               profileImageView.af_setImage(withURL: url)
+               break;
+           }
+       }
         
     }
 
@@ -78,6 +89,25 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         let scaledImage = image.af_imageScaled(to: size)
         
         profileImageView.image = scaledImage
+        
+        for post in posts{
+            let user = post["author"] as! PFUser
+            if user.username == PFUser.current()?.username{
+                let imageData = profileImageView.image!.pngData()
+                let file = PFFileObject(name: "profile_image.png", data: imageData!)
+                
+                post["profile_image"] = file
+                
+                post.saveInBackground { (success, error) in
+                    if success{
+                        self.dismiss(animated: true, completion: nil)
+                        print("saved!")
+                    } else{
+                        print("error!")
+                    }
+                }
+            }
+        }
     
         dismiss(animated: true, completion: nil)
         
@@ -92,12 +122,24 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         let post = posts[indexPath.item]
         let user = post["author"] as! PFUser
-        usernameLabel.text = user.username
-        let imageFile = post["image"] as! PFFileObject
-        let urlString = imageFile.url!
-        let url = URL(string: urlString)!
+        print(PFUser.current())
+        if user.username == PFUser.current()?.username{
+            usernameLabel.text = user.username
+            let imageFile = post["image"] as! PFFileObject
+            let urlString = imageFile.url!
+            let url = URL(string: urlString)!
+            
+            cell.postImageView.af_setImage(withURL: url)
+            
+            if post["profile_image"] != nil {
+                let imageFile2 = post["profile_image"] as! PFFileObject
+                let urlString2 = imageFile2.url!
+                let url2 = URL(string: urlString2)!
+                
+                profileImageView.af_setImage(withURL: url2)
+            }
         
-        cell.postImageView.af_setImage(withURL: url)
+        }
         
         return cell
     }
