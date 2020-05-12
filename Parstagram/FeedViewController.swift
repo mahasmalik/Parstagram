@@ -35,6 +35,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         let query = PFQuery(className: "Posts")
         query.includeKey("author")
+        query.includeKey("profile_photo")
         query.limit = 20
 
         query.findObjectsInBackground { (posts, error) in
@@ -92,7 +93,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         let user = post["author"] as! PFUser
         cell.usernameLabel.text = user.username
-        
+        cell.nameLabel.text = user.username
         cell.captionLabel.text = post["caption"] as! String
         
         let imageFile = post["image"] as! PFFileObject
