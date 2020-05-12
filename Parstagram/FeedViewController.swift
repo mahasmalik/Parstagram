@@ -20,8 +20,8 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        myRefreshControl.addTarget(self, action: #selector(loadPosts), for: .valueChanged)
-//        tableView.refreshControl = myRefreshControl
+        myRefreshControl.addTarget(self, action: #selector(loadPosts), for: .valueChanged)
+        tableView.refreshControl = myRefreshControl
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -36,7 +36,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         let query = PFQuery(className: "Posts")
         query.includeKey("author")
         query.limit = 20
-        
+
         query.findObjectsInBackground { (posts, error) in
             if posts != nil {
                 self.posts = posts!
@@ -48,16 +48,38 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         
     }
     
-//    @objc func loadPosts(){
-//        tableView.reloadData()
-//        self.myRefreshControl.endRefreshing()
-//    }
-//
-//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//        if indexPath.row + 1 == posts.count {
-//            tableView.reloadData()
-//        }
-//    }
+    @objc func loadPosts(){
+        let query = PFQuery(className: "Posts")
+        query.includeKey("author")
+        query.limit = 20
+        
+        query.findObjectsInBackground { (posts, error) in
+            if posts != nil {
+                self.posts = posts!
+                self.tableView.reloadData()
+                self.myRefreshControl.endRefreshing()
+            } else{
+                print("error!")
+            }
+        }
+    }
+
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row + 1 == posts.count {
+            let query = PFQuery(className: "Posts")
+            query.includeKey("author")
+            query.limit = 20
+            
+            query.findObjectsInBackground { (posts, error) in
+                if posts != nil {
+                    self.posts = posts!
+                    self.tableView.reloadData()
+                } else{
+                    print("error!")
+                }
+            }
+        }
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return posts.count
