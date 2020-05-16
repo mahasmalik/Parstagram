@@ -1,27 +1,27 @@
-# Parstagram - Part I
+# Parstagram - Part II
 
-This is an Instagram clone with a custom Parse backend that allows a user to post photos and view a global photos feed.
+This is an Instagram clone with a custom Parse backend that allows a user to post photos, view a global photos feed, and add comments!
 
-Time spent: **5.5** hours spent in total
+Time spent: **X** hours spent in total
 
 ## User Stories
 
 The following **required** functionality is completed:
 
-- [x] User sees app icon in home screen and styled launch screen. (1pt)
-- [x] User can sign up to create a new account. (1pt)
-- [x] User can log in. (1pt)
-- [x] User can take a photo, add a caption, and post it to the server. (3pt)
-- [x] User can view the last 20 posts. (4pts)
+- [ ] User stays logged in across restarts. (1pt)
+- [ ] User can log out. (1pt)
+- [ ] User can view comments on a post. (3pts)
+- [ ] User can add a new comment. (5pts)
 
 The following **bonus** features are implemented:
 
+- [x] User can add a profile picture. (2pts)
+- [x] Profile pictures are shown for posts and comments. (2pts)
 - [x] User can pull to refresh. (1pt)
 - [x] User can load past tweets infinitely. (2pts)
 - [x] User can view their own profile 
 - [x] User can view their own posts
 - [x] User can change their profile photo
-- [x] User can display profile photo with each post
 - [x] Changed style of home feed, login page, and posting page
 - [x] Added tabs to the app - home feed and profile page
 
@@ -29,4 +29,4 @@ The following **bonus** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://g.recordit.co/9pNfT7tFdA.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://g.recordit.co/eYBlNj6dZQ.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
