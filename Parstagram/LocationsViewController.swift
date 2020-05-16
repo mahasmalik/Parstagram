@@ -63,8 +63,7 @@ class LocationsViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // This is the selected venue
         let venue = results[(indexPath as NSIndexPath).row] as! NSDictionary
-        print("Venue:", venue)
-
+        
         // Lat and lng of venue selected
         let lat = venue.value(forKeyPath: "location.lat") as! NSNumber
         let lng = venue.value(forKeyPath: "location.lng") as! NSNumber
@@ -78,8 +77,6 @@ class LocationsViewController: UIViewController, UITableViewDelegate, UITableVie
         
         let latString = "\(lat)"
         let lngString = "\(lng)"
-
-        print(latString + " " + lngString)
     }
     
     func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {

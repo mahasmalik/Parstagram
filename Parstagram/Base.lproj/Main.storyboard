@@ -118,14 +118,8 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chipotle Mexican Grill" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9W4-o6-hO7">
-                                                    <rect key="frame" x="49" y="19" width="337" height="13.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Maha" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rU1-YI-258" userLabel="name">
-                                                    <rect key="frame" x="49" y="8" width="357" height="20.5"/>
+                                                    <rect key="frame" x="49" y="12" width="357" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -135,13 +129,11 @@
                                                 <constraint firstItem="Mk9-3b-7oc" firstAttribute="top" secondItem="Xnc-RF-SX8" secondAttribute="top" constant="8" id="5Og-Vf-zag"/>
                                                 <constraint firstItem="pg1-CF-tnE" firstAttribute="top" secondItem="gf5-xN-Pml" secondAttribute="bottom" constant="8" id="6TA-l3-3DY"/>
                                                 <constraint firstItem="5fd-lQ-pbF" firstAttribute="top" secondItem="gf5-xN-Pml" secondAttribute="bottom" constant="8" id="CIz-eq-Jzv"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="9W4-o6-hO7" secondAttribute="trailing" constant="8" id="HTi-Ey-aDJ"/>
                                                 <constraint firstItem="gf5-xN-Pml" firstAttribute="leading" secondItem="Xnc-RF-SX8" secondAttribute="leading" constant="16" id="NDN-bB-PZ3"/>
                                                 <constraint firstAttribute="trailing" secondItem="rU1-YI-258" secondAttribute="trailing" constant="8" id="QaT-Ym-FCZ"/>
                                                 <constraint firstItem="gf5-xN-Pml" firstAttribute="top" secondItem="Mk9-3b-7oc" secondAttribute="bottom" constant="3" id="QiP-al-zfy"/>
-                                                <constraint firstItem="rU1-YI-258" firstAttribute="top" secondItem="Xnc-RF-SX8" secondAttribute="top" constant="8" id="Soy-5m-AHY"/>
-                                                <constraint firstItem="9W4-o6-hO7" firstAttribute="top" secondItem="Xnc-RF-SX8" secondAttribute="topMargin" constant="8" id="Wba-XK-bVa"/>
-                                                <constraint firstItem="9W4-o6-hO7" firstAttribute="leading" secondItem="Mk9-3b-7oc" secondAttribute="trailing" constant="8" id="YWn-1M-VGW"/>
+                                                <constraint firstItem="rU1-YI-258" firstAttribute="top" secondItem="Xnc-RF-SX8" secondAttribute="top" constant="12" id="Soy-5m-AHY"/>
+                                                <constraint firstItem="gf5-xN-Pml" firstAttribute="top" secondItem="rU1-YI-258" secondAttribute="bottom" constant="3.5" id="V5W-RN-wN3"/>
                                                 <constraint firstAttribute="trailing" secondItem="pg1-CF-tnE" secondAttribute="trailing" constant="8" id="gVG-qT-d8a"/>
                                                 <constraint firstAttribute="trailing" secondItem="gf5-xN-Pml" secondAttribute="trailing" constant="16" id="lTy-o8-5pJ"/>
                                                 <constraint firstItem="Mk9-3b-7oc" firstAttribute="leading" secondItem="Xnc-RF-SX8" secondAttribute="leading" constant="16" id="qxK-mY-Hoe"/>
@@ -149,12 +141,10 @@
                                                 <constraint firstItem="5fd-lQ-pbF" firstAttribute="leading" secondItem="Xnc-RF-SX8" secondAttribute="leading" constant="16" id="sH3-2a-LbE"/>
                                                 <constraint firstItem="pg1-CF-tnE" firstAttribute="leading" secondItem="5fd-lQ-pbF" secondAttribute="trailing" constant="8" id="teC-lT-Uck"/>
                                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="pg1-CF-tnE" secondAttribute="bottom" constant="8" id="xgQ-Mu-LfO"/>
-                                                <constraint firstItem="gf5-xN-Pml" firstAttribute="top" secondItem="9W4-o6-hO7" secondAttribute="bottom" constant="3.5" id="yPy-1L-w2Y"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="captionLabel" destination="pg1-CF-tnE" id="rdH-1l-jBv"/>
-                                            <outlet property="locationLabel" destination="9W4-o6-hO7" id="XeD-yw-olc"/>
                                             <outlet property="nameLabel" destination="rU1-YI-258" id="haZ-ZV-B0c"/>
                                             <outlet property="photoView" destination="gf5-xN-Pml" id="T6u-Wx-m06"/>
                                             <outlet property="profileImageView" destination="Mk9-3b-7oc" id="Jar-LD-uLi"/>
@@ -197,14 +187,14 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="AddCommentCell" id="9ic-n4-jTl">
-                                        <rect key="frame" x="0.0" y="554.5" width="414" height="37.5"/>
+                                        <rect key="frame" x="0.0" y="554.5" width="414" height="37"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9ic-n4-jTl" id="2Kf-mg-dFB">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="37.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="37"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a comment..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mas-kx-aXr">
-                                                    <rect key="frame" x="16" y="8" width="390" height="21.5"/>
+                                                    <rect key="frame" x="16" y="8" width="390" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" systemColor="systemGray3Color" red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -264,16 +254,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add a location..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F82-xb-Nzo">
-                                <rect key="frame" x="31" y="427" width="353" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="touchDown:" destination="aVE-Eh-zAl" eventType="touchDown" id="arc-Mc-NLl"/>
-                                    <segue destination="Tda-9l-OUF" kind="presentation" identifier="locationSegue" id="GzK-rq-L6m"/>
-                                </connections>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="NvB-Rd-CzD"/>
@@ -293,7 +273,6 @@
                     <connections>
                         <outlet property="commentField" destination="Kgd-qY-nef" id="m2V-A9-M7S"/>
                         <outlet property="imageView" destination="KMu-uJ-1sk" id="TKf-KW-m58"/>
-                        <outlet property="locationField" destination="F82-xb-Nzo" id="nEh-Xl-604"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c40-uw-J5q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -310,7 +289,7 @@
             <objects>
                 <viewController id="Tda-9l-OUF" customClass="LocationsViewController" customModule="Parstagram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gZ9-ZW-kGN">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="61" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="JYY-MU-mT6">

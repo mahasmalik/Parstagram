@@ -71,7 +71,7 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         let post = PFObject(className: "Posts")
         
         post["caption"] = commentField.text!
-        post.add(locationField.text, forKey: "location")
+//        post.add(locationField.text, forKey: "location")
        //post["location"] = locationField.text!
         post["author"] = PFUser.current()!
         
@@ -131,7 +131,7 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
 
     func locationsPickedLocation(controller: LocationsViewController, latitude: NSNumber, longitude: NSNumber, title: String) {
         
-        locationField.text = title
+        //locationField.text = title
         
         //dismiss teh LocationVC after adding the pin
         controller.dismiss(animated: true, completion: nil)

@@ -171,12 +171,12 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
                 cell.profileImageView.layer.masksToBounds = true
                 cell.profileImageView.layer.cornerRadius = cell.profileImageView.bounds.width / 2
             }
-            if post["location"] != nil {
-                cell.locationLabel.text = post["location"] as! String
-            }
-            else{
-                cell.locationLabel.text = ""
-            }
+//            if post["location"] != nil {
+//                cell.locationLabel.text = post["location"] as! String
+//            }
+//            else{
+//                cell.locationLabel.text = ""
+            //}
 //            else {
 //                let image = UIImage(systemName: "person.circle")
 //
