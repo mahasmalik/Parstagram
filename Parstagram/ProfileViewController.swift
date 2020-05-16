@@ -23,22 +23,28 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        profileImageView.layer.masksToBounds = true
+        profileImageView.layer.cornerRadius = profileImageView.bounds.width / 2
+        
         collectionView.delegate = self
         collectionView.dataSource = self
         
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         
-        layout.minimumLineSpacing = 4
-        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 2
+        layout.minimumInteritemSpacing = 2
 
         let width = (view.frame.size.width - layout.minimumInteritemSpacing * 2) / 3
         layout.itemSize = CGSize(width: width, height: width)
+        
+        usernameLabel.text = PFUser.current()?.username
         
             
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
         
         let query = PFQuery(className: "Posts")
         query.includeKey("author")
@@ -47,7 +53,14 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         query.findObjectsInBackground { (posts, error) in
             if posts != nil {
                 self.posts = posts!
-                self.postNumberLabel.text = String(self.posts.count)
+                var count = 0
+                for post in self.posts{
+                    let user = post["author"] as! PFUser
+                    if user.username == PFUser.current()?.username{
+                        count = count + 1
+                    }
+                }
+                self.postNumberLabel.text = String(count)
                 self.collectionView.reloadData()
             } else{
                 print("error!")
@@ -65,6 +78,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                break;
            }
        }
+        
+        
         
     }
 
@@ -85,10 +100,11 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let image = info[.editedImage] as! UIImage
         
-        let size = CGSize(width: 100, height: 100)
+        let size = CGSize(width: 75, height: 75)
         let scaledImage = image.af_imageScaled(to: size)
         
         profileImageView.image = scaledImage
+        print(profileImageView.image)
         
         for post in posts{
             let user = post["author"] as! PFUser
@@ -96,6 +112,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 let imageData = profileImageView.image!.pngData()
                 let file = PFFileObject(name: "profile_image.png", data: imageData!)
                 
+//                post.add(file, forKey: "profile_image")
                 post["profile_image"] = file
                 
                 post.saveInBackground { (success, error) in
@@ -122,9 +139,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         let post = posts[indexPath.item]
         let user = post["author"] as! PFUser
-        print(PFUser.current())
         if user.username == PFUser.current()?.username{
-            usernameLabel.text = user.username
             let imageFile = post["image"] as! PFFileObject
             let urlString = imageFile.url!
             let url = URL(string: urlString)!
@@ -135,12 +150,12 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 let imageFile2 = post["profile_image"] as! PFFileObject
                 let urlString2 = imageFile2.url!
                 let url2 = URL(string: urlString2)!
-                
+
                 profileImageView.af_setImage(withURL: url2)
             }
         
         }
-        
+       
         return cell
     }
     
@@ -148,6 +163,18 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         return CGSize(width: 130, height: 130)
     }
     
+    @IBAction func onLogout(_ sender: Any) {
+        PFUser.logOut()
+        
+        //switch user back to login screen
+        let main = UIStoryboard(name: "Main", bundle: nil)
+        let loginViewContoller = main.instantiateViewController(withIdentifier: "loginViewController")
+        
+        let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+        let delegate =  windowScene?.delegate as! SceneDelegate
+        
+        delegate.window?.rootViewController = loginViewContoller
+    }
     /*
     // MARK: - Navigation
 

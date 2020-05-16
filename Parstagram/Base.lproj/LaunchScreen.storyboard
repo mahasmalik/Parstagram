@@ -16,25 +16,39 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="insta_camera_btn" translatesAutoresizingMaskIntoConstraints="NO" id="4ka-3b-95K">
-                                <rect key="frame" x="132" y="398" width="150" height="100"/>
+                                <rect key="frame" x="174" y="398" width="67" height="43"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="AJd-Bx-GX9"/>
-                                    <constraint firstAttribute="height" constant="100" id="Fas-lD-05u"/>
+                                    <constraint firstAttribute="width" constant="67" id="gI0-L2-ezf"/>
+                                    <constraint firstAttribute="height" constant="43" id="w56-tb-tHC"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="instagram_logo" translatesAutoresizingMaskIntoConstraints="NO" id="Fth-uT-WX5">
                                 <rect key="frame" x="87" y="282" width="240" height="108"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FACEBOOK" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zyw-jQ-xmS">
+                                <rect key="frame" x="161.5" y="841" width="91" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="powered by" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kyC-Zl-Y8Z">
+                                <rect key="frame" x="162" y="812" width="90" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Fth-uT-WX5" secondAttribute="trailing" constant="87" id="0U5-sB-gtw"/>
-                            <constraint firstItem="4ka-3b-95K" firstAttribute="top" secondItem="Fth-uT-WX5" secondAttribute="bottom" constant="8" id="613-4k-QJW"/>
-                            <constraint firstItem="4ka-3b-95K" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="132" id="AXz-zx-xRd"/>
-                            <constraint firstItem="4ka-3b-95K" firstAttribute="top" secondItem="Fth-uT-WX5" secondAttribute="bottom" constant="8" id="YFC-DK-ZYa"/>
+                            <constraint firstItem="kyC-Zl-Y8Z" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="H9x-9w-xU7"/>
+                            <constraint firstItem="zyw-jQ-xmS" firstAttribute="top" secondItem="kyC-Zl-Y8Z" secondAttribute="bottom" constant="8" id="IyU-04-haI"/>
+                            <constraint firstItem="zyw-jQ-xmS" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="KF1-F2-gbg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4ka-3b-95K" secondAttribute="trailing" constant="173" id="beR-Go-JWI"/>
                             <constraint firstItem="Fth-uT-WX5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="238" id="d7k-OH-iqE"/>
+                            <constraint firstItem="kyC-Zl-Y8Z" firstAttribute="top" secondItem="4ka-3b-95K" secondAttribute="bottom" constant="371" id="kQw-Wk-hp0"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="4ka-3b-95K" secondAttribute="bottom" constant="421" id="vlJ-Zw-zam"/>
                             <constraint firstItem="Fth-uT-WX5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="wBv-tt-tbz"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4ka-3b-95K" secondAttribute="trailing" constant="132" id="yYb-5C-bpA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
